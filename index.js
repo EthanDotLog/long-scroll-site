@@ -47,14 +47,17 @@
 
 
 function createParagraphs(encouragements) {
+  let zIndexCounter = 1;
   const stagedStatements = encouragements.map((encouragement, index) => {
     const p = document.createElement('p');
     p.id = `encouragement-${index + 1}`;
     p.className = 'message';
     p.textContent = encouragement;
-    const randomMarginPercent = Math.floor(Math.random() * 100); // 0 to 10
+    const randomMarginPercent = Math.floor(Math.random() * 90); // 0 to 10
     const marginSide = Math.random() < 0.5 ? 'marginLeft' : 'marginLeft';
     p.style[marginSide] = `${randomMarginPercent}%`;
+    p.style.zIndex = zIndexCounter++;
+    zIndexCounter++
     return p;
   });
 
